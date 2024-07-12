@@ -178,6 +178,7 @@ public class Example
         Console.WriteLine(result);
     }
 }
+```
 
 ### `dotnet_style_parentheses_in_other_operators = never_if_unnecessary`
 
