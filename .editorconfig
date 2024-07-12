@@ -1,0 +1,49 @@
+root = true
+
+# C# files
+[*.cs]
+
+# Indentation and spacing
+[*.cs]
+indent_size = 4  # Sets the number of spaces used for each indentation level.
+indent_style = space  # Uses spaces for indentation instead of tabs.
+tab_width = 4  # Specifies the width of a tab character.
+
+# New line preferences
+end_of_line = crlf  # Sets the line endings to CRLF (Carriage Return + Line Feed).
+insert_final_newline = false  # Do not insert a newline at the end of the file.
+
+#### .NET Coding Conventions ####
+
+# Organize usings
+dotnet_separate_import_directive_groups = false  # Do not separate using directives into groups.
+dotnet_sort_system_directives_first = true  # Place 'System' using directives first.
+file_header_template = unset  # No specific file header template.
+
+# this. and Me. preferences
+dotnet_style_qualification_for_event = false  # Do not enforce 'this.' or 'Me.' for events.
+dotnet_style_qualification_for_field = false  # Do not enforce 'this.' or 'Me.' for fields.
+dotnet_style_qualification_for_method = false  # Do not enforce 'this.' or 'Me.' for methods.
+dotnet_style_qualification_for_property = false  # Do not enforce 'this.' or 'Me.' for properties.
+
+# Language keywords vs BCL types preferences
+
+# Prefer language keywords (e.g., int) over BCL types (e.g., Int32) for locals, parameters, and members.
+dotnet_style_predefined_type_for_locals_parameters_members = true
+# Prefer language keywords (e.g., int) over BCL types (e.g., Int32) for member access.
+dotnet_style_predefined_type_for_member_access = true
+
+# Parentheses preferences
+
+# Always use parentheses for arithmetic binary operators for clarity.
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity
+# Always use parentheses for other binary operators for clarity.
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity
+# Never use parentheses for other operators if unnecessary.
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary
+# Always use parentheses for relational binary operators for clarity.
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity
+
+# Modifier preferences
+dotnet_style_require_accessibility_modifiers = for_non_interface_members # Require accessibility modifiers for non-interface members.
+
