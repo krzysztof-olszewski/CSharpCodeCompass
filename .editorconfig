@@ -4,7 +4,6 @@ root = true
 [*.cs]
 
 # Indentation and spacing
-[*.cs]
 indent_size = 4  # Sets the number of spaces used for each indentation level.
 indent_style = space  # Uses spaces for indentation instead of tabs.
 tab_width = 4  # Specifies the width of a tab character.
@@ -47,3 +46,39 @@ dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity
 # Modifier preferences
 dotnet_style_require_accessibility_modifiers = for_non_interface_members # Require accessibility modifiers for non-interface members.
 
+# Expression-level preferences
+
+# Prefer null-coalescing operator (??) over conditional expression for null check and assignment.
+dotnet_style_coalesce_expression = true
+# Prefer collection initializer syntax (e.g., new List<int> { 1, 2, 3 }) over explicit constructor syntax.
+dotnet_style_collection_initializer = true  
+# Require explicit tuple element names when deconstructing tuples or assigning to tuple variables.
+dotnet_style_explicit_tuple_names = true
+# Require that the namespace declaration matches the folder structure.
+dotnet_style_namespace_match_folder = true
+# Prefer null propagation (?. and ?[]) over null checks.
+dotnet_style_null_propagation = true
+# Prefer object initializer syntax (e.g., new MyClass { Prop1 = value1, Prop2 = value2 }) over explicit constructor syntax.
+dotnet_style_object_initializer = true
+# Prefer operators to be placed at the beginning of lines when wrapping expressions.
+dotnet_style_operator_placement_when_wrapping = beginning_of_line  
+# Prefer auto-implemented properties (e.g., public int MyProperty { get; set; }) over manually implemented ones.
+dotnet_style_prefer_auto_properties = true
+# Prefer collection initializer syntax when the collection type matches loosely.
+dotnet_style_prefer_collection_initializer = when_types_loosely_match
+# Prefer compound assignment (e.g., +=) over separate assignment and operation.
+dotnet_style_prefer_compound_assignment = true
+# Prefer conditional expressions (?:) over return statements.
+dotnet_style_prefer_conditional_expression_over_return = true
+# Prefer explicit cast in foreach when strongly typed.
+dotnet_style_prefer_foreach_explicit_cast_in_source = when_strongly_typed
+# Prefer inferred member names in anonymous types.
+dotnet_style_prefer_inferred_anonymous_type_member_names = true
+# Prefer inferred element names in tuples.
+dotnet_style_prefer_inferred_tuple_names = true
+# Prefer 'is null' check over reference equality method for null check.
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true
+# Prefer simplified boolean expressions.
+dotnet_style_prefer_simplified_boolean_expressions = true
+# Prefer simplified string interpolation.
+dotnet_style_prefer_simplified_interpolation = true

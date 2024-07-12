@@ -246,3 +246,354 @@ public interface IExample
 }
 ```
 
+## Field Preferences
+
+### `dotnet_style_readonly_field = true`
+
+**Explanation:**
+This setting specifies a preference for using `readonly` fields where possible.
+Readonly fields are useful when the value assigned to the field will not change after initialization, providing clarity and preventing accidental modification.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    private readonly int initialValue = 10;  // Readonly field initialized with a value.
+
+    public Example()
+    {
+        Console.WriteLine(initialValue);
+    }
+}
+```
+
+## Expression-level preferences
+
+### `dotnet_style_coalesce_expression = true`
+
+**Explanation:**
+This setting specifies a preference for using the null-coalescing operator (`??`) over conditional expressions for null check and assignment. It provides a more concise and readable way to handle null values.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public string GetName(string name)
+    {
+        string result = name ?? "DefaultName";  // Null-coalescing operator used.
+        return result;
+    }
+}
+```
+
+### `dotnet_style_collection_initializer = true`
+
+**Explanation:**
+
+This setting specifies a preference for using collection initializer syntax over explicit constructor syntax when initializing collections. 
+It improves code readability and conciseness.
+
+```csharp
+public class Example
+{
+    public List<int> GetNumbers()
+    {
+        List<int> numbers = new() { 1, 2, 3 };  // Collection initializer syntax used.
+        return numbers;
+    }
+}
+```
+
+### `dotnet_style_explicit_tuple_names = true`
+
+**Explanation:**
+
+This setting specifies that explicit tuple element names should be required when deconstructing tuples or assigning to tuple variables. 
+Explicit names enhance code readability and maintainability.
+
+```csharp
+public class Example
+{
+    public (int id, string name) GetPerson()
+    {
+        return (1, "John");  // Tuple with explicit names.
+    }
+
+    public void ProcessPerson()
+    {
+        var person = GetPerson();
+        var (id, name) = person;  // Deconstruction with explicit names.
+        Console.WriteLine($"{id}: {name}");
+    }
+}
+```
+
+### `dotnet_style_namespace_match_folder = true`
+
+**Explanation:**
+
+This setting specifies that the namespace declaration should match the folder structure where the file resides. 
+This convention helps organize and locate files within the project structure.
+
+```csharp
+// File: /Project/Utilities/Helper.cs
+namespace Project.Utilities;
+
+public class Helper
+{
+    // Class implementation
+}
+```
+
+### `dotnet_style_null_propagation = true`
+
+**Explanation:**
+This setting specifies a preference for using null propagation operators (?. and ?[]) over explicit null checks. 
+It improves code readability and reduces verbosity when accessing members of potentially null objects or collections.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public int GetStringLength(string? text)
+    {
+        int length = text?.Length ?? 0;  // Null propagation operator used.
+        return length;
+    }
+}
+```
+
+### `dotnet_style_object_initializer = true`
+
+**Explanation:**
+This setting specifies a preference for using object initializer syntax (e.g., new MyClass { Prop1 = value1, Prop2 = value2 }) over explicit constructor syntax when initializing objects. 
+It provides a more concise and readable way to set object properties.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public void CreatePerson()
+    {
+        var person = new Person
+        {
+            FirstName = "John",
+            LastName = "Doe"
+        };  // Object initializer syntax used.
+    }
+}
+```
+
+### `dotnet_style_operator_placement_when_wrapping = beginning_of_line`
+
+**Explanation:**
+This setting specifies that operators should be placed at the beginning of lines when wrapping expressions. 
+It improves code readability by clearly indicating where operators are used in complex expressions.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public void WrappedExpression()
+    {
+        if (true
+            && true)  // Operator placed at the beginning of the line.
+        {
+            // Code block
+        }
+    }
+}
+
+```
+
+### `dotnet_style_prefer_auto_properties = true`
+
+**Explanation:**
+This setting specifies a preference for using auto-implemented properties (e.g., public int MyProperty { get; set; }) over manually implemented ones.
+Auto properties reduce boilerplate code and improve maintainability.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public int MyProperty { get; set; }  // Auto-implemented property.
+}
+```
+
+### `dotnet_style_prefer_collection_initializer = when_types_loosely_match`
+
+**Explanation:**
+This setting specifies a preference for using collection initializer syntax when the collection type matches loosely. 
+It simplifies code and improves readability when initializing collections.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public List<int> GetNumbers()
+    {
+        IEnumerable<int> numbers = new List<int> { 1, 2, 3 };  // Collection initializer used when types loosely match.
+        return numbers.ToList();
+    }
+}
+```
+
+### `dotnet_style_prefer_compound_assignment = true`
+
+**Explanation:**
+This setting specifies a preference for using compound assignment operators (e.g., +=, -=, etc.) over separate assignment and operation. 
+It enhances code conciseness and clarity.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public void UpdateCounter(ref int counter)
+    {
+        counter += 10;  // Compound assignment operator used.
+    }
+}
+```
+
+### `dotnet_style_prefer_conditional_expression_over_assignment = true`
+
+**Explanation:**
+This setting specifies a preference for using conditional expressions (?:) over assignment statements. 
+It can make code more concise and readable in certain conditional assignment scenarios.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public int GetAbsoluteValue(int number)
+    {
+        int absValue = number >= 0 ? number : -number;  // Conditional expression used for absolute value calculation.
+        return absValue;
+    }
+}
+```
+
+### `dotnet_style_prefer_conditional_expression_over_return = true`
+
+**Explanation:**
+This setting specifies a preference for using conditional expressions (?:) over return statements. 
+It can make code more concise and readable when returning values based on conditions.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public string GetGreeting(bool isFormal)
+    {
+        return isFormal ? "Hello, Sir/Madam." : "Hi there!";  // Conditional expression used for returning different greetings.
+    }
+}
+```
+
+### `dotnet_style_prefer_foreach_explicit_cast_in_source = when_strongly_typed`
+
+**Explanation:**
+This setting specifies a preference for using an explicit cast in foreach loops when the collection type is strongly typed. 
+It ensures type safety and clarity in foreach iterations.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public void ProcessNumbers()
+    {
+        var list = new List<object>();
+        foreach (string item in list.Cast<string>())
+        {
+            // some code
+        }
+    }
+}
+
+```
+
+### `dotnet_style_prefer_inferred_tuple_names = true`
+
+**Explanation:**
+This setting specifies a preference for using inferred element names in tuples. 
+It simplifies tuple usage by allowing the compiler to infer element names from variable names during tuple initialization.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public (int id, string name) GetPerson()
+    {
+        return (1, "John");  // Tuple with inferred element names.
+    }
+
+    public void ProcessPerson()
+    {
+        var person = GetPerson();
+        var (id, name) = person;  // Deconstruction with inferred names.
+        Console.WriteLine($"{id}: {name}");
+    }
+}
+```
+
+### `dotnet_style_prefer_is_null_check_over_reference_equality_method = true`
+
+**Explanation:**
+This setting specifies a preference for using is null check over reference equality method (== null or != null) for null checks. 
+It promotes clearer and more consistent null checks in the code.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public void CheckIfNull(string? text)
+    {
+        if (text is null)  // 'is null' check used.
+        {
+            Console.WriteLine("Text is null");
+        }
+    }
+}
+```
+
+### `dotnet_style_prefer_simplified_boolean_expressions = true`
+
+**Explanation:**
+This setting specifies a preference for simplified boolean expressions where possible.  
+(that return a constant value of true or false versus retaining conditional expressions with explicit true or false return values)
+
+It encourages using simpler and more readable boolean conditions in if-statements and loops.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public bool IsNameValid(string? name)
+    {
+        // dotnet_style_prefer_simplified_boolean_expressions = true
+        return !string.IsNullOrEmpty(name);  // Simplified boolean expression.
+
+        // dotnet_style_prefer_simplified_boolean_expressions = false
+        return !string.IsNullOrEmpty(name) ? true : false;  // explicit.
+    }
+}
+```
+
+### `dotnet_style_prefer_simplified_interpolation = true`
+
+**Explanation:**
+This setting specifies a preference for simplified string interpolation. 
+It encourages using interpolated strings when combining string literals and expressions.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public string GreetPerson(string? name)
+    {
+        return $"Hello, {name}!";  // Simplified string interpolation.
+
+        //return $"Hello, {name.ToString()}!";  // explicit method call.
+    }
+}
+```
