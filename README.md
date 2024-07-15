@@ -1,16 +1,13 @@
 # CSharpCodeCompas
 
-CSharpCodeCompas is set of guidelines - code conventions + tool for coding in csharp.
-
-
 This repository contains guidelines and configurations for C# development, focusing on maintaining consistency and best practices across projects.
 
 ## Contents
 
 1. **.editorconfig**
-    - Configuration file (`editorconfig`) with comments explaining each rule.
-2. **editorconfig-rules.md**
-    - Markdown file detailing rules configured in `.editorconfig`, including explanations and examples.
+    - Configuration file (`.editorconfig`) with comments explaining each rule.
+2. [Core editorconfig rules](core-editorconfig-rules.md) - Markdown file detailing core rules configured in `.editorconfig`, including explanations and examples.
+3. [C# conding conventions](csharp-coding-convention.md) - Markdown file detailing C# coding conventions, including explanations and examples.
 
 ## Details
 
