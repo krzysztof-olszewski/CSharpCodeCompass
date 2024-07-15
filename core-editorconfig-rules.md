@@ -1,4 +1,18 @@
-# .editorconfig rules
+# Core .editorconfig rules
+
+## Table of Contents
+1. [Indentation and Spacing](#indentation-and-spacing)
+2. [New Line Preferences](#new-line-preferences)
+3. [Organize Usings](#organize-usings)
+4. [`this.` Preferences](#this-preferences)
+5. [Language Keywords vs BCL Types Preferences](#language-keywords-vs-bcl-types-preferences)
+6. [Parentheses Preferences](#parentheses-preferences)
+7. [Modifier Preferences](#modifier-preferences)
+8. [Field Preferences](#field-preferences)
+9. [Expression level preferences](#expression-level-preferences)
+10. [Parameter Preferences](#parameter-preferences)
+11. [Suppression Preferences](#suppression-preferences)
+12. [New Line Preferences](#new-line-preferences)
 
 ## Indentation and Spacing
 
@@ -72,7 +86,7 @@ using System.Collections.Generic;
 
 public class Example
 {
-	// some code
+    // some code
 }
 ```
 
@@ -100,8 +114,7 @@ public class Example
 **Explanation:**
 This setting specifies that no specific file header template is required.
 
-
-## this. and Me. Preferences
+## this Preferences 
 
 ### `dotnet_style_qualification_for_event = false`
 ### `dotnet_style_qualification_for_field = false`
@@ -159,7 +172,6 @@ public class Example
     }
 }
 ```
-
 
 ## Parentheses Preferences
 
@@ -268,7 +280,7 @@ public class Example
 }
 ```
 
-## Expression-level preferences
+## Expression level preferences
 
 ### `dotnet_style_coalesce_expression = true`
 
@@ -595,6 +607,112 @@ public class Example
         return $"Hello, {name}!";  // Simplified string interpolation.
 
         //return $"Hello, {name.ToString()}!";  // explicit method call.
+    }
+}
+```
+
+## Parameter Preferences
+
+### `dotnet_style_prefer_simplified_interpolation = true`
+
+**Explanation:**
+This setting ensures that the compiler warns about all unused parameters in methods, constructors, and indexers. 
+This helps in identifying and cleaning up unnecessary code, improving maintainability and readability.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    // This method has an unused parameter 'unusedParam'.
+    public void DoWork(int usedParam, int unusedParam)
+    {
+        Console.WriteLine(usedParam);
+        // Warning: The parameter 'unusedParam' is assigned but its value is never used.
+    }
+}
+```
+
+## Suppression Preferences
+
+### `dotnet_remove_unnecessary_suppression_exclusions = none`
+
+**Explanation:**
+This setting specifies that no unnecessary suppression exclusions should be present, enabling the rule for all types of suppressions without any exclusions. 
+It ensures that all unnecessary suppressions are automatically removed, keeping the codebase clean from redundant suppression directives.
+
+**C# Code Example:**
+
+```csharp
+using System.Diagnostics.CodeAnalysis;
+
+class PragmaExample
+{
+    // Necessary pragma suppression
+    #pragma warning disable IDE0051 // IDE0051: Remove unused member
+    private int UnusedMethod() => 0;
+
+    // IDE0079: Unnecessary pragma suppression -> Remove this
+    #pragma warning disable IDE0051 // IDE0051: Remove unused member
+    private int UsedMethod() => 0;
+
+    public int PublicMethod() => UsedMethod();
+}
+
+class SuppressMessageExample
+{
+    // Necessary SuppressMessage attribute suppression
+    [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
+    private int _unusedField;
+
+    // IDE0079: Unnecessary SuppressMessage attribute suppression -> Remove this
+    [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
+    private int _usedField;
+
+    public int PublicMethod2() => _usedField;
+}
+```
+
+## New Line Preferences
+
+### `dotnet_style_allow_multiple_blank_lines_experimental = false`
+
+**Explanation:**
+This setting disallows the use of multiple blank lines in the code. 
+It enforces a cleaner and more compact code structure by preventing unnecessary blank lines.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public void Method1()
+    {
+        Console.WriteLine("Method1");
+
+        // Only one blank line is allowed.
+        Console.WriteLine("Multiple blank lines are not allowed here.");
+    }
+}
+```
+
+### `dotnet_style_allow_statement_immediately_after_block_experimental = false`
+
+**Explanation:**
+This setting disallows writing statements immediately after a block (such as after a closing brace) without an additional new line. 
+It enforces a more readable code structure by requiring a blank line after closing braces.
+
+**C# Code Example:**
+```csharp
+public class Example
+{
+    public void Method1()
+    {
+        if (true)
+        {
+            Console.WriteLine("Inside block");
+        }
+        
+        // Blank line required after block
+        Console.WriteLine("Immediately after block");
     }
 }
 ```
